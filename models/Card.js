@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const Joi = require('joi');
 
 const cardSchema = new mongoose.Schema({
-  category: String,
-  question: String,
-  answer: String,
+  category: {type: String, required: true, minlength: 1, maxlength: 100 },
+  question: {type: String, required: true},
+  answer: {type: String, required: true},
 
 });
 
