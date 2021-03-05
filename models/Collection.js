@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 const Joi = require('joi');
+const { cardSchema } = require('./card');
 
 const collectionSchema = new mongoose.Schema({
-  flashcards: [{}]
+  flashcard: { type: [cardSchema], default: [] },
 
 });
 
