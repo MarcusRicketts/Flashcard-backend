@@ -1,16 +1,10 @@
 const mongoose = require('mongoose');
-const Joi = require('joi');
-const { cardSchema } = require('./card');
+const myCard = require('./Card');
 
 const collectionSchema = new mongoose.Schema({
-  flashcard: { type: [cardSchema], default: [] },
+  title: {type: String, required: true, minlength:1},
+  cards: [myCard.schema],
 
 });
 
-const Collection = mongoose.model('Collection', collectionSchema);
-
-
-
-exports.Collection = Collection;
-exports.collectionSchema = collectionSchema;
-module.exports = Collection;
+module.exports = mongoose.model('Collection', collectionSchema);
